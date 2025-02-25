@@ -1,29 +1,68 @@
-
-//variables
 const http = require('http');
-const fs = require('fs')
-const hostname = '127.0.0.1';
-const port = 4000;
+// node module named http 
 
-//Functions
-//Syntax of a function
-const someName = (name)=> {
-    console.log("Your name is " + name)
+const fs = require('fs');
+
+const hostname = '127.0.0.1'; // specifying IP address in quotes as is it has dots 
+const port = 8080;
+
+const someName = (name)=>{
+    console.log('your name is:' + name)
+
 }
-someName("Togan Makzume")
-const server = http.createServer((req, res) => {
-    console.log(req.url)
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/html');
-  fs.readFile('./public/home.html' , (error,content) => {
-    //We need to handle errors
 
-    //If there are not errors, we can output the content 
-    res.end(content)
-  })
+someName('Togan')
+
+// read files and display them
+const displayPage = (path, r, status = 200)=> {
+
+  r.setHeader('Content-Type', 'text/html');
+  // render file with code instead of showing bare code 
+
+  fs.readFile(path,(error,content)=>{
+
+    if(error){
+      r.statusCode = 500;
+      r.end("500 - error")
+    } else{
+    
+    r.statusCode = status;
+    r.end(content);
+    }
+
+  });
+}
+
+const server = http.createServer((req, res) => {
+
+  console.log(req.url);
+
+  switch (req.url) {
+    
+    case "":
+    case "/":
+    // response 
+    displayPage('./public/home.html', res) 
+    break; 
+
+    case "/about":
+      // response 
+      displayPage('./public/about.html', res) 
+      break; 
+
+    case "/contact":
+    // response 
+    displayPage('./public/contact.html', res) 
+    break; 
+
+    default:
+      // response 
+      displayPage('./public/404.html',res,404) 
+    
+  } 
   
 });
 
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
-}); 
+server.listen(port, hostname, ()=>{
+    console.log(`Server running at http://${hostname}:${port}/`);
+});
