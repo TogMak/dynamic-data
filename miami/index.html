@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Travel App - Home</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body style="background: linear-gradient(to bottom right, white, #3c4c49)">
+  <!-- Header with Navigation -->
+  <!-- Header with Navigation and Search -->
+  <header>
+    <h1>Miami Travel App</h1>
+    <div style=" display: flex; justify-content: center; align-items: center; gap: 40px">
+      <nav>
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="nightlife.html">Nightlife</a></li>
+          <li><a href="beach.html">Beach</a></li>
+          <li><a href="malls.html">Malls</a></li>
+          <li><a href="museums.html">Museums</a></li>
+        </ul>
+      </nav>
+      <div class="search-container">
+        <div class="search-box">
+          <input type="text" id="search-input" placeholder="Search services and destinations..." />
+          <button id="search-btn">Search</button>
+        </div>
+        <!-- Container for search results -->
+        <div id="search-results"></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="home-bg-image" style="
+        width: 100%;
+        height: 90vh;
+        background-image: url('/public/images/bg/miami.png');
+        background-color: rgba(0, 0, 0, 0.3);
+        background-blend-mode: overlay;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        object-fit: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      ">
+    <div class="bt-padding-section-large" style="
+          opacity: 1;
+          transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+          transform-style: preserve-3d;
+        ">
+      <p class="bt-text-style-regular color-white align-left" style="color: white">
+        Discover USA
+      </p>
+      <div class="bt-text-align-center">
+        <h1 class="bt-heading-style-h1 section-hero color-white" style="color: white">
+          Explore Miami
+        </h1>
+      </div>
+      <p class="bt-text-style-regular color-white align-right" style="color: white">
+        The true beauty of Florida
+      </p>
+    </div>
+  </div>
+
+  <!-- Slideshow Section -->
+  <section id="slideshow">
+    <div class="slideshow-container">
+      <div class="slide fade">
+        <img src="/public/images/slides/main1.jpg" alt="Slide 1" />
+      </div>
+      <div class="slide fade">
+        <img src="/public/images/slides/main2.jpg" alt="Slide 2" />
+      </div>
+      <div class="slide fade">
+        <img src="/public/images/slides/main3.jpg" alt="Slide 3" />
+      </div>
+    </div>
+    <div class="dots-container">
+      <span class="dot" data-index="1"></span>
+      <span class="dot" data-index="2"></span>
+      <span class="dot" data-index="3"></span>
+    </div>
+  </section>
+
+  <script src="slideshow.js"></script>
+  <script src="search.js"></script>
+
+  <!-- About / Text Block Section -->
+  <section id="about">
+    <h2>About Our Travel App</h2>
+    <p>
+      Welcome to the Travel App! Discover amazing destinations, enjoy
+      exclusive services, and explore our extensive gallery for inspiration.
+    </p>
+  </section>
+
+  <!-- Destinations Section -->
+  <section id="destinations">
+    <h2>Featured Destinations</h2>
+    <div class="destinations-container" id="destinations-container">
+      <!-- Destination cards will be appended here dynamically -->
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services-section">
+    <h2>Our Services</h2>
+    <div id="services">
+      <!-- Services will be appended here dynamically -->
+    </div>
+  </section>
+
+
+
+  <!-- Gallery Section -->
+  <section id="gallery">
+    <h2>Gallery</h2>
+    <div class="gallery-container" id="gallery-container">
+      <!-- Gallery images will be appended dynamically from gallery.json -->
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Travel App. All rights reserved.</p>
+  </footer>
+
+  <!-- JavaScript: Fetch and display destination cards and gallery images -->
+  <script>
+
+    // --- DESTINATIONS ---
+    // For Home page, show all destinations (or choose featured ones)
+    fetch("/data/services.json")
+      .then((response) => response.json())
+      .then((data) => {
+        // Choose the services category.
+        // For the home page, we're using "main".
+        const services = data.main; // Change to data.beach, data.nightlife, etc., on other pages.
+        const servicesContainer = document.getElementById("services");
+
+        services.forEach((service) => {
+          // Create a service element.
+          const serviceDiv = document.createElement("div");
+          serviceDiv.classList.add("service");
+
+          // Insert the service name and description.
+          serviceDiv.innerHTML = `
+          <strong>${service.name}</strong><br>
+          <small>${service.description}</small>
+        `;
+
+          // Append the service to the container.
+          servicesContainer.appendChild(serviceDiv);
+        });
+      })
+      .catch((err) => console.error("Error fetching services:", err));
+    fetch("/data/destinations.json")
+      .then((response) => response.json())
+      .then((jsonData) => {
+        const locations = jsonData.locations.filter(
+          (loc) => loc.page.toLowerCase() === "main"
+        );
+        const container = document.getElementById("destinations-container");
+        // Limit to 4 for homepage
+        locations.slice(0, 4).forEach((loc) => {
+          const card = document.createElement("div");
+          card.classList.add("destination-card");
+
+          const img = document.createElement("img");
+          img.src = loc.image;
+          img.alt = loc.name;
+          card.appendChild(img);
+
+          const cardContent = document.createElement("div");
+          cardContent.classList.add("card-content");
+
+          const name = document.createElement("h3");
+          name.textContent = loc.name;
+          cardContent.appendChild(name);
+
+          const desc = document.createElement("p");
+          desc.textContent = loc.description;
+          cardContent.appendChild(desc);
+
+          card.appendChild(cardContent);
+          container.appendChild(card);
+        });
+      })
+      .catch((err) => console.error("Error fetching destinations:", err));
+
+    // --- GALLERY ---
+    // Fetch gallery images from gallery.json (assumed to have an array "images")
+    fetch("/data/gallery.json")
+      .then((response) => response.json())
+      .then((jsonData) => {
+        const images = jsonData["main"]; // Get the images for the current category
+        const container = document.getElementById("gallery-container");
+
+        images.forEach((imgObj) => {
+          const img = document.createElement("img");
+          img.src = imgObj.url;
+          img.alt = "Gallery Image";
+          container.appendChild(img);
+        });
+      })
+      .catch((err) => console.error("Error fetching gallery:", err));
+  </script>
+</body>
+
+</html>

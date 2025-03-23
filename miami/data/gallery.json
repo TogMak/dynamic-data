@@ -1,53 +1,31 @@
 {
-    "images":[
-    {
-        "url":"/images/gallery/gallery1.jpg"
-    },
-    {
-        "url":"/images/gallery/gallery1.jpg"
-    },
-    {
-        "url":"/images/gallery/gallery1.jpg"
-    },
-    {
-        "url":"/images/gallery/gallery1.jpg"
-    },
-    {
-        "url":"/images/gallery/gallery1.jpg"
-    },
-    {
-        "url":"/images/gallery/gallery1.jpg"
-    },
-    {
-        "url":"/images/gallery/gallery1.jpg"
-    },
-    {
-        "url":"/images/gallery/gallery1.jpg"
-    },
-    {
-        "url":"/images/gallery/gallery1.jpg"
-    },
-    {
-        "url":"/images/gallery/gallery1.jpg"
-    },
-    {
-        "url":"/images/gallery/gallery1.jpg"
-    },
-    {
-        "url":"/images/gallery/gallery1.jpg"
-    },
-    {
-        "url":"/images/gallery/gallery1.jpg"
-    },
-    {
-        "url":"/images/gallery/gallery1.jpg"
-    },
-    {
-        "url":"/images/gallery/gallery1.jpg"
-    },
-    {
-        "url":"/images/gallery/gallery1.jpg"
-    }
-
+    "main": [
+      { "url": "/public/images/gallery/main1.jpg" },
+      { "url": "/public/images/gallery/main2.jpg" },
+      { "url": "/public/images/gallery/main3.jpg" },
+      { "url": "/public/images/gallery/main4.jpg" },
+      { "url": "/public/images/gallery/main5.jpg" },
+      { "url": "/public/images/gallery/main6.jpg" }
+    ],
+    "beach": [
+      { "url": "/public/images/gallery/beach1.jpg" },
+      { "url": "/public/images/gallery/beach2.jpg" },
+      { "url": "/public/images/gallery/beach3.jpg" }
+    ],
+    "nightlife": [
+      { "url": "/public/images/gallery/nightlife1.jpg" },
+      { "url": "/public/images/gallery/nightlife2.jpg" },
+      { "url": "/public/images/gallery/nightlife3.jpg" }
+    ],
+    "malls": [
+      { "url": "/public/images/gallery/mall1.jpg" },
+      { "url": "/public/images/gallery/mall2.jpg" },
+      { "url": "/public/images/gallery/mall3.jpg" }
+    ],
+    "museums": [
+      { "url": "/public/images/gallery/museum1.jpg" },
+      { "url": "/public/images/gallery/museum2.jpg" },
+      { "url": "/public/images/gallery/museum3.jpg" }
     ]
-}
+  }
+  
