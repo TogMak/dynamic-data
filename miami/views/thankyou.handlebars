@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="/miami/public/css/styles.css" />
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+  </head>
+  <body style="background: linear-gradient(to bottom right, white, #3c4c49)">
+    <header>
+    <h1>Miami Travel App</h1>
+    <div style="display: flex; justify-content: center; align-items: center; gap: 40px">
+      <nav>
+        <ul>
+          <li><a href="/" class="{{#if (eq title 'Home')}}active{{/if}}">Home</a></li>
+          <li><a href="/nightlife" class="{{#if (eq title 'Miami Nightlife')}}active{{/if}}">Nightlife</a></li>
+          <li><a href="/beach" class="{{#if (eq title 'Miami Beaches')}}active{{/if}}">Beach</a></li>
+          <li><a href="/malls" class="{{#if (eq title 'Miami Malls')}}active{{/if}}">Malls</a></li>
+          <li><a href="/museums" class="{{#if (eq title 'Miami Museums')}}active{{/if}}">Museums</a></li>
+          <li><a href="/newsletter-signup" class="{{#if (eq title 'Newsletter Signup')}}active{{/if}}">Newsletter</a></li>
+        </ul>
+      </nav>
+      <div class="search-container">
+        <div class="search-box">
+          <input type="text" id="search-input" placeholder="Search services and destinations..." />
+          <button id="search-btn">Search</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+    <section style="margin-top: 100px;">
+      <div class="container text-center">
+        <h1>Thank you for subscribing!</h1>
+        <p>Your subscription has been successfully received.</p>
+        <a class="btn btn-primary" href="/">Return Home</a>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 Travel App. All rights reserved.</p>
+    </footer>
+
+    <!-- Include jQuery and Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="/search.js"></script>
+  </body>
+</html>

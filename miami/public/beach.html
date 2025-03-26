@@ -4,9 +4,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Travel App - Nightlife</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>Travel App - Beach</title>
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
+
 <body>
   <!-- Header & Navigation -->
   <header>
@@ -15,8 +16,8 @@
       <nav>
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li><a href="nightlife.html" class="active">Nightlife</a></li>
-          <li><a href="beach.html">Beach</a></li>
+          <li><a href="nightlife.html">Nightlife</a></li>
+          <li><a href="beach.html" class="active">Beach</a></li>
           <li><a href="malls.html">Malls</a></li>
           <li><a href="museums.html">Museums</a></li>
         </ul>
@@ -34,8 +35,7 @@
   <div class="home-bg-image" style="
         width: 100%;
         height: 90vh;
-        background-image: url('/public/images/bg/nightlife.png');
-        
+        background-image: url('images/bg/beach.jpg');
         background-color: rgba(0, 0, 0, 0.3);
         background-blend-mode: overlay;
         background-size: cover;
@@ -52,15 +52,16 @@
           transform-style: preserve-3d;
         ">
       <p class="bt-text-style-regular color-white align-left" style="color: white">
-        From trendy clubs to cozy bars, find the best spots to unwind.
+        One of the best beaches in the world
       </p>
       <div class="bt-text-align-center">
-        <h1 class="bt-heading-style-h1 section-hero color-white" style="color: white;">
-          Miami's Nightlife
+        <h1 class="bt-heading-style-h1 section-hero color-white" style="color: white">
+          Miami's Beach
         </h1>
       </div>
       <p class="bt-text-style-regular color-white align-right" style="color: white">
-        Experience the vibrant and energetic nightlife of our city. From trendy clubs to cozy bars, find the best spots to unwind.
+        Enjoy the soothing sounds and beautiful sunsets at our top beach destinations. Relax and let the sea breeze
+        refresh you.
       </p>
     </div>
   </div>
@@ -69,13 +70,13 @@
   <section id="slideshow">
     <div class="slideshow-container">
       <div class="slide fade">
-        <img src="/public/images/slides/nightlife1.jpg" alt="Slide 1" />
+        <img src="images/slides/beach1.jpg" alt="Slide 1" />
       </div>
       <div class="slide fade">
-        <img src="/public/images/slides/nightlife2.jpg" alt="Slide 2" />
+        <img src="images/slides/beach2.jpg" alt="Slide 2" />
       </div>
       <div class="slide fade">
-        <img src="/public/images/slides/nightlife3.jpg" alt="Slide 3" />
+        <img src="images/slides/beach3.jpg" alt="Slide 3" />
       </div>
     </div>
     <div class="dots-container">
@@ -87,25 +88,27 @@
 
   <!-- About / Text Block Section -->
   <section id="about">
-    <h2>About Nightlife</h2>
+    <h2>About the Beach</h2>
     <p>
-      Experience the vibrant and energetic nightlife of our city. From trendy
-      clubs to cozy bars, find the best spots to unwind.
+      Enjoy the soothing sounds and beautiful sunsets at our top beach
+      destinations. Relax and let the sea breeze refresh you.
     </p>
   </section>
 
-  
+
   <!-- Destinations Section -->
   <section id="destinations">
-    <h2>Nightlife Destinations</h2>
+    <h2>Beach Destinations</h2>
     <div class="destinations-container" id="destinations-container">
-      <!-- Only show destinations with category "nightlife" -->
+      <!-- Filter for beaches (assuming "beaches" in JSON) -->
     </div>
   </section>
   <!-- Services Section -->
   <section id="services-section">
     <h2>Our Services</h2>
-    <div id="services"></div>
+    <div id="services">
+
+    </div>
   </section>
 
   <!-- Gallery Section -->
@@ -121,20 +124,20 @@
     <p>&copy; 2025 Travel App. All rights reserved.</p>
   </footer>
 
-  <!-- JavaScript: Filter destinations for nightlife and load gallery -->
+  <!-- JavaScript: Filter beach destinations and load gallery -->
   <script>
-    fetch("/data/services.json")
-      .then((response) => response.json())
-      .then((data) => {
+    fetch('data/services.json')
+      .then(response => response.json())
+      .then(data => {
         // Choose the services category.
         // For the home page, we're using "main".
-        const services = data.nightlife; // Change to data.beach, data.nightlife, etc., on other pages.
-        const servicesContainer = document.getElementById("services");
+        const services = data.beach; // Change to data.beach, data.nightlife, etc., on other pages.
+        const servicesContainer = document.getElementById('services');
 
-        services.forEach((service) => {
+        services.forEach(service => {
           // Create a service element.
-          const serviceDiv = document.createElement("div");
-          serviceDiv.classList.add("service");
+          const serviceDiv = document.createElement('div');
+          serviceDiv.classList.add('service');
 
           // Insert the service name and description.
           serviceDiv.innerHTML = `
@@ -146,16 +149,15 @@
           servicesContainer.appendChild(serviceDiv);
         });
       })
-      .catch((err) => console.error("Error fetching services:", err));
-    // Filter destinations for nightlife
-    fetch("/data/destinations.json")
+      .catch(err => console.error('Error fetching services:', err));
+    // Filter destinations for beaches (assuming the JSON uses "beaches")
+    fetch("data/destinations.json")
       .then((response) => response.json())
       .then((jsonData) => {
         const locations = jsonData.locations.filter(
-          (loc) => loc.page.toLowerCase() === "nightlife"
+          (loc) => loc.page.toLowerCase() === "beaches"
         );
         const container = document.getElementById("destinations-container");
-        // Limit to 4
         locations.slice(0, 4).forEach((loc) => {
           const card = document.createElement("div");
           card.classList.add("destination-card");
@@ -181,29 +183,29 @@
         });
       })
       .catch((err) =>
-        console.error("Error fetching nightlife destinations:", err)
+        console.error("Error fetching beach destinations:", err)
       );
 
     // Load gallery images
-    fetch("/data/gallery.json")
-      .then((response) => response.json())
-      .then((jsonData) => {
-        const images = jsonData["nightlife"]; // Get the images for the current category
+    fetch("data/gallery.json")
+      .then(response => response.json())
+      .then(jsonData => {
+        const images = jsonData["beach"]; // Get the images for the current category
         const container = document.getElementById("gallery-container");
 
-        images.forEach((imgObj) => {
+        images.forEach(imgObj => {
           const img = document.createElement("img");
           img.src = imgObj.url;
-          img.alt = imgObj.url;
+          img.alt = "Gallery Image";
           container.appendChild(img);
         });
       })
-      .catch((err) => console.error("Error fetching gallery:", err));
+      .catch(err => console.error("Error fetching gallery:", err));
   </script>
 </body>
 
+<script src="/slideshow.js"></script>
+<script src="/search.js"></script>
 
-<script src="slideshow.js"></script>
-<script src="search.js"></script>
 
 </html>

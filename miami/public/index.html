@@ -4,22 +4,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Travel App - Beach</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>Travel App - Home</title>
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 
-<body>
-  <!-- Header & Navigation -->
+<body style="background: linear-gradient(to bottom right, white, #3c4c49)">
+  <!-- Header with Navigation -->
+  <!-- Header with Navigation and Search -->
   <header>
     <h1>Miami Travel App</h1>
     <div style=" display: flex; justify-content: center; align-items: center; gap: 40px">
       <nav>
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="nightlife.html">Nightlife</a></li>
-          <li><a href="beach.html" class="active">Beach</a></li>
-          <li><a href="malls.html">Malls</a></li>
-          <li><a href="museums.html">Museums</a></li>
+          <li><a href="/" class="active">Home</a></li>
+          <li><a href="nightlife">Nightlife</a></li>
+          <li><a href="beach">Beach</a></li>
+          <li><a href="malls">Malls</a></li>
+          <li><a href="museums">Museums</a></li>
+          <li><a href="/newsletter-signup">Newsletter</a></li>
+        </ul>
         </ul>
       </nav>
       <div class="search-container">
@@ -32,10 +35,11 @@
       </div>
     </div>
   </header>
+
   <div class="home-bg-image" style="
         width: 100%;
         height: 90vh;
-        background-image: url('/public/images/bg/beach.jpg');
+        background-image: url('images/bg/miami.png');
         background-color: rgba(0, 0, 0, 0.3);
         background-blend-mode: overlay;
         background-size: cover;
@@ -52,16 +56,15 @@
           transform-style: preserve-3d;
         ">
       <p class="bt-text-style-regular color-white align-left" style="color: white">
-        One of the best beaches in the world
+        Discover USA
       </p>
       <div class="bt-text-align-center">
         <h1 class="bt-heading-style-h1 section-hero color-white" style="color: white">
-          Miami's Beach
+          Explore Miami
         </h1>
       </div>
       <p class="bt-text-style-regular color-white align-right" style="color: white">
-        Enjoy the soothing sounds and beautiful sunsets at our top beach destinations. Relax and let the sea breeze
-        refresh you.
+        The true beauty of Florida
       </p>
     </div>
   </div>
@@ -70,13 +73,13 @@
   <section id="slideshow">
     <div class="slideshow-container">
       <div class="slide fade">
-        <img src="/public/images/slides/beach1.jpg" alt="Slide 1" />
+        <img src="images/slides/main1.jpg" alt="Slide 1" />
       </div>
       <div class="slide fade">
-        <img src="/public/images/slides/beach2.jpg" alt="Slide 2" />
+        <img src="images/slides/main2.jpg" alt="Slide 2" />
       </div>
       <div class="slide fade">
-        <img src="/public/images/slides/beach3.jpg" alt="Slide 3" />
+        <img src="images/slides/main3.jpg" alt="Slide 3" />
       </div>
     </div>
     <div class="dots-container">
@@ -86,36 +89,41 @@
     </div>
   </section>
 
+  <script src="/slideshow.js"></script>
+  <script src="/search.js"></script>
+
   <!-- About / Text Block Section -->
   <section id="about">
-    <h2>About the Beach</h2>
+    <h2>About Our Travel App</h2>
     <p>
-      Enjoy the soothing sounds and beautiful sunsets at our top beach
-      destinations. Relax and let the sea breeze refresh you.
+      Welcome to the Travel App! Discover amazing destinations, enjoy
+      exclusive services, and explore our extensive gallery for inspiration.
     </p>
   </section>
 
-  
   <!-- Destinations Section -->
   <section id="destinations">
-    <h2>Beach Destinations</h2>
+    <h2>Featured Destinations</h2>
     <div class="destinations-container" id="destinations-container">
-      <!-- Filter for beaches (assuming "beaches" in JSON) -->
+      <!-- Destination cards will be appended here dynamically -->
     </div>
   </section>
+
   <!-- Services Section -->
   <section id="services-section">
     <h2>Our Services</h2>
     <div id="services">
-
+      <!-- Services will be appended here dynamically -->
     </div>
   </section>
+
+
 
   <!-- Gallery Section -->
   <section id="gallery">
     <h2>Gallery</h2>
     <div class="gallery-container" id="gallery-container">
-      <!-- Gallery images loaded from gallery.json -->
+      <!-- Gallery images will be appended dynamically from gallery.json -->
     </div>
   </section>
 
@@ -124,20 +132,23 @@
     <p>&copy; 2025 Travel App. All rights reserved.</p>
   </footer>
 
-  <!-- JavaScript: Filter beach destinations and load gallery -->
+  <!-- JavaScript: Fetch and display destination cards and gallery images -->
   <script>
-    fetch('/data/services.json')
-      .then(response => response.json())
-      .then(data => {
+
+    // --- DESTINATIONS ---
+    // For Home page, show all destinations (or choose featured ones)
+    fetch("/miami/data/services.json")
+      .then((response) => response.json())
+      .then((data) => {
         // Choose the services category.
         // For the home page, we're using "main".
-        const services = data.beach; // Change to data.beach, data.nightlife, etc., on other pages.
-        const servicesContainer = document.getElementById('services');
+        const services = data.main; // Change to data.beach, data.nightlife, etc., on other pages.
+        const servicesContainer = document.getElementById("services");
 
-        services.forEach(service => {
+        services.forEach((service) => {
           // Create a service element.
-          const serviceDiv = document.createElement('div');
-          serviceDiv.classList.add('service');
+          const serviceDiv = document.createElement("div");
+          serviceDiv.classList.add("service");
 
           // Insert the service name and description.
           serviceDiv.innerHTML = `
@@ -149,15 +160,15 @@
           servicesContainer.appendChild(serviceDiv);
         });
       })
-      .catch(err => console.error('Error fetching services:', err));
-    // Filter destinations for beaches (assuming the JSON uses "beaches")
-    fetch("/data/destinations.json")
+      .catch((err) => console.error("Error fetching services:", err));
+    fetch("/miami/data/destinations.json")
       .then((response) => response.json())
       .then((jsonData) => {
         const locations = jsonData.locations.filter(
-          (loc) => loc.page.toLowerCase() === "beaches"
+          (loc) => loc.page.toLowerCase() === "main"
         );
         const container = document.getElementById("destinations-container");
+        // Limit to 4 for homepage
         locations.slice(0, 4).forEach((loc) => {
           const card = document.createElement("div");
           card.classList.add("destination-card");
@@ -182,30 +193,25 @@
           container.appendChild(card);
         });
       })
-      .catch((err) =>
-        console.error("Error fetching beach destinations:", err)
-      );
+      .catch((err) => console.error("Error fetching destinations:", err));
 
-    // Load gallery images
-    fetch("/data/gallery.json")
-      .then(response => response.json())
-      .then(jsonData => {
-        const images = jsonData["beach"]; // Get the images for the current category
+    // --- GALLERY ---
+    // Fetch gallery images from gallery.json (assumed to have an array "images")
+    fetch("/miami/data/gallery.json")
+      .then((response) => response.json())
+      .then((jsonData) => {
+        const images = jsonData["main"]; // Get the images for the current category
         const container = document.getElementById("gallery-container");
 
-        images.forEach(imgObj => {
+        images.forEach((imgObj) => {
           const img = document.createElement("img");
           img.src = imgObj.url;
           img.alt = "Gallery Image";
           container.appendChild(img);
         });
       })
-      .catch(err => console.error("Error fetching gallery:", err));
+      .catch((err) => console.error("Error fetching gallery:", err));
   </script>
 </body>
-
-<script src="slideshow.js"></script>
-<script src="search.js"></script>
-
 
 </html>

@@ -1,3 +1,11 @@
+
+document.getElementById("search-btn").addEventListener("click", () => {
+  const query = document.getElementById("search-input").value;
+  if (query) {
+    window.location.href = `/search?q=${encodeURIComponent(query)}`;
+  }
+});
+
 // Define mappings from service/destination categories to their parent pages.
 const servicePageMap = {
   main: "index.html",
@@ -16,9 +24,7 @@ const destinationPageMap = {
 };
 
 // Attach event listeners for the search
-document
-  .getElementById("search-btn")
-  .addEventListener("click", performSearch);
+document.getElementById("search-btn").addEventListener("click", performSearch);
 document.getElementById("search-input").addEventListener("keyup", (e) => {
   if (e.key === "Enter") performSearch();
 });
@@ -35,8 +41,8 @@ function performSearch() {
 
   // Fetch both JSON files concurrently
   Promise.all([
-    fetch("/data/services.json").then((res) => res.json()),
-    fetch("/data/destinations.json").then((res) => res.json()),
+    fetch("data/services.json").then((res) => res.json()),
+    fetch("data/destinations.json").then((res) => res.json()),
   ])
     .then(([servicesData, locationsData]) => {
       let results = [];
@@ -74,8 +80,7 @@ function performSearch() {
       if (results.length === 0) {
         resultsDiv.innerHTML = `<p style="color: #000">No results found for "${query}".</p>`;
       } else {
-        let html =
-          "<ul style='list-style: none; padding: 0; margin: 0;'>";
+        let html = "<ul style='list-style: none; padding: 0; margin: 0;'>";
         results.forEach((item) => {
           html += `<li style="margin: 0.5rem 0;">
       <a href="${item.url}" style="color: #22879D; font-weight: bold;">
