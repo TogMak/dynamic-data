@@ -1,11 +1,139 @@
-{{>slideshow}}
+<!DOCTYPE html>
+<html lang="en">
 
-{{#if title}}
-<h1> {{title}} </h1>
-{{/if}}
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{title}}</title>
+  <link rel="stylesheet" href="/miami/public/css/styles.css" />
+</head>
 
-{{#if description}}
-<h1> {{description}} </h1>
-{{/if}}
+<body style="background: linear-gradient(to bottom right, white, #3c4c49)">
+  <!-- Header with Navigation -->
+  <header>
+    <h1>Miami Travel App</h1>
+    <div style="display: flex; justify-content: center; align-items: center; gap: 40px">
+      <nav>
+        <ul>
+          <li><a href="/" class="{{#if (eq title 'Home')}}active{{/if}}">Home</a></li>
+          <li><a href="/nightlife" class="{{#if (eq title 'Miami Nightlife')}}active{{/if}}">Nightlife</a></li>
+          <li><a href="/beach" class="{{#if (eq title 'Miami Beaches')}}active{{/if}}">Beach</a></li>
+          <li><a href="/malls" class="{{#if (eq title 'Miami Malls')}}active{{/if}}">Malls</a></li>
+          <li><a href="/museums" class="{{#if (eq title 'Miami Museums')}}active{{/if}}">Museums</a></li>
+          <li><a href="/newsletter-signup" class="{{#if (eq title 'Newsletter Signup')}}active{{/if}}">Newsletter</a></li>
+        </ul>
+      </nav>
+      <div class="search-container">
+        <div class="search-box">
+          <input type="text" id="search-input" placeholder="Search services and destinations..." />
+          <button id="search-btn">Search</button>
+        </div>
+      </div>
+    </div>
+  </header>
 
-{{destiations}}
+  <div class="home-bg-image" style="
+        height: 90vh;
+        background-image: url('{{heroImage}}');
+        background-color: rgba(0, 0, 0, 0.3);
+        background-blend-mode: overlay;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        object-fit: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      ">
+    <div class="bt-padding-section-large" style="
+          opacity: 1;
+          transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+          transform-style: preserve-3d;
+        ">
+      <p class="bt-text-style-regular color-white align-left" style="color: white">
+        {{aboveTitle}}
+      </p>
+      <div class="bt-text-align-center">
+        <h1 class="bt-heading-style-h1 section-hero color-white" style="color: white">
+          {{title}}
+        </h1>
+      </div>
+      <p class="bt-text-style-regular color-white align-right" style="color: white">
+        {{belowTitle}}
+      </p>
+    </div>
+  </div>
+
+  <!-- Slideshow Section -->
+  <section id="slideshow">
+  <div class="slideshow-container">
+    {{#each slides}}
+    <div class="slide fade">
+      <img src="{{this.image}}" alt="{{this.altText}}" />
+    </div>
+    {{/each}}
+  </div>
+  <div class="dots-container">
+    <span class="dot" data-index="1"></span>
+    <span class="dot" data-index="2"></span>
+    <span class="dot" data-index="3"></span>
+  </div>
+</section>
+
+
+  <script src="/slideshow.js"></script>
+  <script src="/search.js"></script>
+
+  <!-- About / Text Block Section -->
+  <section id="about">
+    <h2>About {{title}}</h2>
+    <p>
+      {{about}}
+    </p>
+  </section>
+
+  <!-- Destinations Section -->
+<section id="destinations">
+  <h2>Beach Destinations</h2>
+  <div class="destinations-container" id="destinations-container">
+    {{#each destinations}}
+      <div class="destination-card">
+        <img src="{{this.image}}" alt="{{this.name}}">
+        <div class="card-content">
+          <h3>{{this.name}}</h3>
+          <p>{{this.description}}</p>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</section>
+
+<!-- Services Section -->
+<section id="services-section">
+  <h2>Our Services</h2>
+  <div id="services">
+    {{#each services}}
+      <div class="service">
+        <strong>{{this.name}}</strong><br>
+        <small>{{this.description}}</small>
+      </div>
+    {{/each}}
+  </div>
+</section>
+
+<!-- Gallery Section -->
+<section id="gallery">
+  <h2>Gallery</h2>
+  <div class="gallery-container" id="gallery-container">
+    {{#each gallery}}
+      <img src="{{this.url}}" alt="Gallery Image">
+    {{/each}}
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>&copy; 2025 Travel App. All rights reserved.</p>
+</footer>
+
+</html>

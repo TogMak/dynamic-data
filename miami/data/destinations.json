@@ -1,52 +1,124 @@
 {
-    "locations":[
-        {
-            "page":"nightlife",
-            "name":"Factory Town",
-            "description":"Magni delectus maxime ut eligendi mollitia quos porro accusamus, minus non consequuntur enim.",
-            "image":"/images/destinations/destination.jpg"
-        },
-        {
-            "page":"nightlife",
-            "name":"The Bar",
-            "description":"Magni delectus maxime ut eligendi mollitia quos porro accusamus, minus non consequuntur enim.",
-            "image":"/images/destinations/destination.jpg"
-        },
-        {
-            "page":"nightlife",
-            "name":"Titanic",
-            "description":"Magni delectus maxime ut eligendi mollitia quos porro accusamus, minus non consequuntur enim.",
-            "image":"/images/destinations/destination.jpg"
-        },
-        {
-            "page":"nightlife",
-            "name":"Bodega",
-            "description":"Magni delectus maxime ut eligendi mollitia quos porro accusamus, minus non consequuntur enim.",
-            "image":"/images/destinations/destination.jpg"
-        },
-        {
-            "page":"beaches",
-            "name":"South Beach",
-            "description":"Magni delectus maxime ut eligendi mollitia quos porro accusamus, minus non consequuntur enim.",
-            "image":"/images/destinations/destination.jpg"
-        },
-        {
-            "page":"beaches",
-            "name":"Crandon Park",
-            "description":"Magni delectus maxime ut eligendi mollitia quos porro accusamus, minus non consequuntur enim.",
-            "image":"/images/destinations/destination.jpg"
-        },
-        {
-            "page":"beaches",
-            "name":"Cape Florida",
-            "description":"Magni delectus maxime ut eligendi mollitia quos porro accusamus, minus non consequuntur enim.",
-            "image":"/images/destinations/destination.jpg"
-        },
-        {
-            "page":"beaches",
-            "name":"Hobie",
-            "description":"Magni delectus maxime ut eligendi mollitia quos porro accusamus, minus non consequuntur enim.",
-            "image":"/images/destinations/destination.jpg"
-        }
-    ]
+  "locations": [
+    {
+      "page": "main",
+      "name": "Downtown",
+      "description": "Experience the heart of the city with bustling streets, vibrant nightlife, and a rich cultural scene in Downtown.",
+      "image": "images/destinations/main1.jpg"
+    },
+    {
+      "page": "main",
+      "name": "Uptown",
+      "description": "Discover a sophisticated urban oasis with upscale dining, luxury shopping, and world-class entertainment in Uptown.",
+      "image": "images/destinations/main2.jpg"
+    },
+    {
+      "page": "main",
+      "name": "Midtown",
+      "description": "Explore a trendy neighborhood with eclectic boutiques, cozy cafes, and a lively arts scene in Midtown.",
+      "image": "images/destinations/main3.jpg"
+    },
+    {
+      "page": "main",
+      "name": "West End",
+      "description": "Unwind in a peaceful setting with scenic parks, charming streets, and a relaxed atmosphere in West End.",
+      "image": "images/destinations/main4.jpg"
+    },
+    {
+      "page": "nightlife",
+      "name": "Factory Town",
+      "description": "Immerse yourself in an eclectic mix of live music, art installations, and dynamic club nights at Factory Town.",
+      "image": "images/destinations/nightlife1.jpg"
+    },
+    {
+      "page": "nightlife",
+      "name": "The Bar",
+      "description": "Experience the vibrant atmosphere and signature cocktails in a setting that blends classic charm with modern flair at The Bar.",
+      "image": "images/destinations/nightlife2.jpg"
+    },
+    {
+      "page": "nightlife",
+      "name": "Titanic",
+      "description": "Step into a world of luxurious nightlife with immersive events and unforgettable parties at Titanic.",
+      "image": "images/destinations/nightlife3.jpg"
+    },
+    {
+      "page": "nightlife",
+      "name": "Bodega",
+      "description": "Unwind in a laid-back environment featuring craft drinks and a unique fusion of local and international vibes at Bodega.",
+      "image": "images/destinations/nightlife4.jpg"
+    },
+    {
+      "page": "beaches",
+      "name": "South Beach",
+      "description": "Soak up the sun on golden sands, enjoy crystal clear waters, and experience the vibrant culture of South Beach.",
+      "image": "images/destinations/beach1.jpg"
+    },
+    {
+      "page": "beaches",
+      "name": "Crandon Park",
+      "description": "Discover a serene getaway with lush landscapes and tranquil waters at Crandon Park, where nature’s beauty meets relaxation.",
+      "image": "images/destinations/beach2.jpg"
+    },
+    {
+      "page": "beaches",
+      "name": "Cape Florida",
+      "description": "Enjoy breathtaking sunsets and refreshing ocean breezes at Cape Florida, an ideal spot to unwind and rejuvenate.",
+      "image": "images/destinations/beach3.jpg"
+    },
+    {
+      "page": "beaches",
+      "name": "Hobie",
+      "description": "Embrace the ultimate beach adventure with exciting water sports and laid-back vibes at Hobie.",
+      "image": "images/destinations/beach4.jpg"
+    },
+    {
+      "page": "museums",
+      "name": "Modern Art Museum",
+      "description": "Explore cutting-edge art and contemporary exhibits that challenge the boundaries of creativity at the Modern Art Museum.",
+      "image": "images/destinations/museum1.jpg"
+    },
+    {
+      "page": "museums",
+      "name": "History Museum",
+      "description": "Journey through time with fascinating artifacts and immersive displays that bring history to life at the History Museum.",
+      "image": "images/destinations/museum2.jpg"
+    },
+    {
+      "page": "museums",
+      "name": "Science Center",
+      "description": "Discover the wonders of science with interactive experiments and engaging presentations at the Science Center.",
+      "image": "images/destinations/museum3.jpg"
+    },
+    {
+      "page": "museums",
+      "name": "Cultural Heritage Museum",
+      "description": "Delve into rich cultural narratives and historical treasures that celebrate diversity at the Cultural Heritage Museum.",
+      "image": "images/destinations/museum4.jpg"
+    },
+    {
+      "page": "malls",
+      "name": "Central Mall",
+      "description": "Shop in style at Central Mall, featuring a wide range of high-end retailers and premium brands in a modern setting.",
+      "image": "images/destinations/mall1.jpg"
+    },
+    {
+      "page": "malls",
+      "name": "Luxury Plaza",
+      "description": "Indulge in an upscale shopping experience with exclusive designer boutiques and fine dining at Luxury Plaza.",
+      "image": "images/destinations/mall2.jpg"
+    },
+    {
+      "page": "malls",
+      "name": "Outlet Center",
+      "description": "Find unbeatable deals and a vibrant mix of brands at Outlet Center, your destination for smart shopping.",
+      "image": "images/destinations/mall3.jpg"
+    },
+    {
+      "page": "malls",
+      "name": "Fashion Square",
+      "description": "Stay ahead of trends with the latest fashion collections and a dynamic retail environment at Fashion Square.",
+      "image": "images/destinations/mall4.jpg"
+    }
+  ]
 }

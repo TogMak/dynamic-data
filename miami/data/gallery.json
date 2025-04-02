@@ -1,53 +1,30 @@
 {
-    "images":[
-    {
-        "url":"/images/gallery/gallery1.jpg"
-    },
-    {
-        "url":"/images/gallery/gallery1.jpg"
-    },
-    {
-        "url":"/images/gallery/gallery1.jpg"
-    },
-    {
-        "url":"/images/gallery/gallery1.jpg"
-    },
-    {
-        "url":"/images/gallery/gallery1.jpg"
-    },
-    {
-        "url":"/images/gallery/gallery1.jpg"
-    },
-    {
-        "url":"/images/gallery/gallery1.jpg"
-    },
-    {
-        "url":"/images/gallery/gallery1.jpg"
-    },
-    {
-        "url":"/images/gallery/gallery1.jpg"
-    },
-    {
-        "url":"/images/gallery/gallery1.jpg"
-    },
-    {
-        "url":"/images/gallery/gallery1.jpg"
-    },
-    {
-        "url":"/images/gallery/gallery1.jpg"
-    },
-    {
-        "url":"/images/gallery/gallery1.jpg"
-    },
-    {
-        "url":"/images/gallery/gallery1.jpg"
-    },
-    {
-        "url":"/images/gallery/gallery1.jpg"
-    },
-    {
-        "url":"/images/gallery/gallery1.jpg"
-    }
-
-    ]
+  "main": [
+    { "url": "images/gallery/main1.jpg" },
+    { "url": "images/gallery/main2.jpg" },
+    { "url": "images/gallery/main3.jpg" },
+    { "url": "images/gallery/main4.jpg" },
+    { "url": "images/gallery/main5.jpg" },
+    { "url": "images/gallery/main6.jpg" }
+  ],
+  "beach": [
+    { "url": "images/gallery/beach1.jpg" },
+    { "url": "images/gallery/beach2.jpg" },
+    { "url": "images/gallery/beach3.jpg" }
+  ],
+  "nightlife": [
+    { "url": "images/gallery/nightlife1.jpg" },
+    { "url": "images/gallery/nightlife2.jpg" },
+    { "url": "images/gallery/nightlife3.jpg" }
+  ],
+  "malls": [
+    { "url": "images/gallery/mall1.jpg" },
+    { "url": "images/gallery/mall2.jpg" },
+    { "url": "images/gallery/mall3.jpg" }
+  ],
+  "museums": [
+    { "url": "images/gallery/museum1.jpg" },
+    { "url": "images/gallery/museum2.jpg" },
+    { "url": "images/gallery/museum3.jpg" }
+  ]
 }

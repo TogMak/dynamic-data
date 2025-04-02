@@ -1,0 +1,86 @@
+{
+  "main": [
+    {
+      "name": "Hotel Booking",
+      "description": "Book the best hotels at great rates."
+    },
+    {
+      "name": "Flight Booking",
+      "description": "Reserve flights quickly and easily."
+    },
+    {
+      "name": "Car Rental",
+      "description": "Find affordable car rentals near you."
+    },
+    {
+      "name": "Tour Packages",
+      "description": "Explore curated tour packages for your adventure."
+    }
+  ],
+  "beach": [
+    {
+      "name": "Beachside Dining",
+      "description": "Dine with an unbeatable ocean view."
+    },
+    {
+      "name": "Water Sports",
+      "description": "Experience thrilling water sports activities."
+    },
+    {
+      "name": "Resort Booking",
+      "description": "Book luxury resorts by the beach."
+    },
+    {
+      "name": "Sunset Cruises",
+      "description": "Enjoy a scenic cruise during sunset."
+    }
+  ],
+  "nightlife": [
+    { "name": "Bar Hopping", "description": "Discover the best local bars." },
+    {
+      "name": "Nightclub Entry",
+      "description": "Access the trendiest nightclubs in town."
+    },
+    {
+      "name": "Pub Crawls",
+      "description": "Join guided pub crawls and meet new people."
+    },
+    {
+      "name": "VIP Table Booking",
+      "description": "Reserve exclusive VIP tables for special nights."
+    }
+  ],
+  "malls": [
+    {
+      "name": "Shopping",
+      "description": "Enjoy a premium shopping experience."
+    },
+    {
+      "name": "Dining",
+      "description": "Savor gourmet meals at top mall restaurants."
+    },
+    {
+      "name": "Movie Theaters",
+      "description": "Catch the latest blockbuster movies."
+    },
+    {
+      "name": "Arcades",
+      "description": "Have fun at state-of-the-art arcades."
+    }
+  ],
+  "museums": [
+    { "name": "Art Exhibits", "description": "Explore curated art exhibits." },
+    {
+      "name": "Historical Artifacts",
+      "description": "Discover artifacts from past civilizations."
+    },
+    {
+      "name": "Interactive Exhibits",
+      "description": "Experience hands-on interactive displays."
+    },
+    {
+      "name": "Guided Tours",
+      "description": "Join expert-led tours for in-depth insights."
+    }
+  ]
+}
