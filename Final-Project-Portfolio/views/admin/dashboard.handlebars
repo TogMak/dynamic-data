@@ -1,0 +1,89 @@
+{{! views/admin/dashboard.handlebars }}
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+  <!-- Header with gradient ribbon -->
+  <div class="relative mb-14 animate-fade-in-down">
+    <div class="absolute inset-0 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 opacity-20 rounded-lg blur-sm"></div>
+    <div class="relative z-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6 bg-white/80 backdrop-blur-md p-8 rounded-lg shadow-xl">
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-800 flex items-center gap-3">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 1.343-3 3s1.343 3 3 3 3-1.343 3-3-1.343-3-3-3z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.522 5 12 5s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7s-8.268-2.943-9.542-7z"/></svg>
+        Admin Dashboard
+      </h1>
+      <div class="flex flex-wrap gap-3">
+        <a href="/admin/categories/new" class="inline-flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white rounded-full shadow hover:bg-indigo-500 transition">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+          New Category
+        </a>
+        <a href="/admin/projects/new" class="inline-flex items-center gap-2 px-4 py-2 bg-purple-600 text-white rounded-full shadow hover:bg-purple-500 transition">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+          New Project
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Categories Section -->
+  <section class="mb-16 animate-fade-in-up [animation-delay:.2s]">
+    <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-2">
+      <span class="h-1 w-8 bg-indigo-600 rounded-full"></span>
+      Categories
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {{#each cats}}
+        <div class="relative group bg-white rounded-xl shadow-lg overflow-hidden hover:-translate-y-1 hover:shadow-2xl transition transform duration-300 animate-fade-in-up">
+          <div class="p-6 flex items-center justify-between">
+            <span class="text-lg font-medium text-gray-800">{{this.name}}</span>
+            <div class="flex gap-2">
+              <a href="/admin/categories/{{this.id}}/edit" class="inline-flex items-center gap-1 px-3 py-1 bg-yellow-500 text-white text-xs rounded-full hover:bg-yellow-400 transition">
+                <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" fill="none"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.728 9.686l-1.414-1.414L5 17.586V19h1.414l9.314-9.314zM17.142 8.272l1.414-1.414-1.414-1.414-1.414 1.414zM7.242 21H3v-4.243L16.435 3.322a1 1 0 011.414 0l2.829 2.829a1 1 0 010 1.414L7.243 21z"/></svg>
+                Edit
+              </a>
+              <form method="POST" action="/admin/categories/{{this.id}}?_method=DELETE" class="m-0">
+                <button type="submit" class="inline-flex items-center gap-1 px-3 py-1 bg-red-500 text-white text-xs rounded-full hover:bg-red-400 transition">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                  Delete
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="animate-fade-in-up [animation-delay:.4s]">
+    <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-2">
+      <span class="h-1 w-8 bg-purple-600 rounded-full"></span>
+      Projects
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {{#each projs}}
+        <div class="relative group bg-white rounded-xl shadow-lg overflow-hidden hover:-translate-y-1 hover:shadow-2xl transition transform duration-300 animate-fade-in-up">
+          <div class="p-6 flex items-center justify-between">
+            <span class="text-lg font-medium text-gray-800 line-clamp-1">{{this.title}}</span>
+            <div class="flex gap-2">
+              <a href="/admin/projects/{{this.id}}/edit" class="inline-flex items-center gap-1 px-3 py-1 bg-yellow-500 text-white text-xs rounded-full hover:bg-yellow-400 transition">
+                <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.728 9.686l-1.414-1.414L5 17.586V19h1.414l9.314-9.314zM17.142 8.272l1.414-1.414-1.414-1.414-1.414 1.414zM7.242 21H3v-4.243L16.435 3.322a1 1 0 011.414 0l2.829 2.829a1 1 0 010 1.414L7.243 21z"/></svg>
+                Edit
+              </a>
+              <form method="POST" action="/admin/projects/{{this.id}}?_method=DELETE" class="m-0">
+                <button type="submit" class="inline-flex items-center gap-1 px-3 py-1 bg-red-500 text-white text-xs rounded-full hover:bg-red-400 transition">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                  Delete
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  </section>
+</main>
+
+<!-- keyframes -->
+<style>
+@keyframes fade-in-up { from { opacity:0; transform:translateY(16px);} to{ opacity:1; transform:none;} }
+@keyframes fade-in-down{ from { opacity:0; transform:translateY(-16px);} to{ opacity:1; transform:none;} }
+.animate-fade-in-up{ animation: fade-in-up .6s both; }
+.animate-fade-in-down{ animation: fade-in-down .6s both; }
+</style>

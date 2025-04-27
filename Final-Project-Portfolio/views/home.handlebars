@@ -1,0 +1,60 @@
+{{!-- views/home.handlebars --}}
+<!-- ░░░ HERO ░░░ -->
+<section class="relative overflow-hidden w-screen py-28 bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500 text-white">
+  <div class="absolute -top-24 -left-24 w-72 h-72 bg-purple-400 opacity-40 rounded-full "></div>
+  <div class="absolute -bottom-24 -right-24 w-72 h-72 bg-pink-400 opacity-40 rounded-full "></div>
+  <div class="relative z-10 max-w-4xl mx-auto text-center px-4">
+    <h1 class="text-5xl sm:text-6xl font-extrabold drop-shadow-lg tracking-tight mb-6 animate-fade-in-down">
+      Welcome to <span class="underline decoration-4 decoration-white/60">your portfolio</span>
+    </h1>
+    <p class="text-xl sm:text-2xl font-light leading-relaxed animate-fade-in-up">
+      Catalog your <span class="font-semibold">projects & photos</span> by category and share them in style.
+    </p>
+    <a href="#latest"
+       class="inline-flex items-center gap-2 mt-10 px-6 py-3 bg-white text-indigo-600 font-medium rounded-full shadow-lg hover:shadow-2xl transition-shadow duration-300 animate-fade-in-up">
+      Explore latest work
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 7l5 5-5 5M6 12h12"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- ░░░ LATEST ADDITIONS ░░░ -->
+<section id="latest" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+  <h2 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-12 flex items-center gap-3">
+    <span class="inline-block w-10 h-1 bg-indigo-600 rounded-full"></span>
+    5 Latest Additions
+  </h2>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+    {{#each projects}}
+      <div class="group relative rounded-xl overflow-hidden shadow-xl transform transition duration-500 hover:shadow-2xl hover:-translate-y-1 bg-gradient-to-br from-white to-gray-100 cursor-pointer" onclick="location.href='/categories/{{this.category_id}}'">
+        <!-- Image with soft darken -->
+        <img src="{{this.image_url}}" alt="{{this.title}}"
+             class="h-56 w-full object-cover group-hover:scale-105 transition-transform duration-500" />
+
+        <!-- Content -->
+        <div class="relative z-10 p-6">
+          <h3 class="text-xl font-semibold text-gray-800 mb-2 line-clamp-1 group-hover:text-indigo-700 transition-colors duration-300">
+            {{this.title}}
+          </h3>
+          <p class="text-gray-600 text-sm mb-4 line-clamp-3">
+            {{this.description}}
+          </p>
+          <a href="/categories/{{this.category_id}}"
+             class="inline-flex items-center gap-1 text-sm font-medium text-indigo-600 hover:text-indigo-800 transition-colors">
+            View category — {{this.category}}
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 7l5 5-5 5M6 12h12"/></svg>
+          </a>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</section>
+
+<!-- ░░░ SIMPLE FADE-IN ANIMS using Tailwind arbitrary keyframes ░░░ -->
+<style>
+  @keyframes fade-in-down { from {opacity:0; transform:translateY(-10px)} to {opacity:1; transform:none} }
+  @keyframes fade-in-up   { from {opacity:0; transform:translateY(10px)}  to {opacity:1; transform:none} }
+  .animate-fade-in-down { animation: fade-in-down .8s both; }
+  .animate-fade-in-up   { animation: fade-in-up   .8s .2s both; }
+</style>

@@ -1,0 +1,17 @@
+<ul class="list-group">
+    {{#each items}}
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            {{#ifEquals type "categories"}}
+                {{this.name}}
+            {{else}}
+                {{this.title}}
+            {{/ifEquals}}
+            <span>
+        <a href="/admin/{{type}}/{{this.id}}/edit" class="btn btn-sm btn-primary">Edit</a>
+        <form method="POST" action="/admin/{{type}}/{{this.id}}?_method=DELETE" class="d-inline">
+          <button class="btn btn-sm btn-danger">Delete</button>
+        </form>
+      </span>
+        </li>
+    {{/each}}
+</ul>

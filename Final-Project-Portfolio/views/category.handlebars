@@ -1,0 +1,38 @@
+{{!-- views/category.handlebars --}}
+<section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 animate-fade-in-down">
+  <!-- Hero -->
+  <div class="text-center mb-12">
+    <h1 class="text-4xl font-extrabold text-indigo-600 mb-3 capitalize">
+      {{category.name}}
+    </h1>
+    <p class="text-gray-600 text-lg">Curated projects & photos in this category</p>
+  </div>
+
+  {{#if projects.length}}
+    <!-- List (1‑col) -->
+    <div class="space-y-8">
+      {{#each projects}}
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition transform hover:-translate-y-1 animate-fade-in-up">
+          <img src="{{image_url}}" alt="{{title}}" class="h-96 w-full object-cover" />
+          <div class="p-6">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-2 line-clamp-1">{{title}}</h3>
+            <p class="text-gray-600 text-sm line-clamp-4">{{description}}</p>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  {{else}}
+    <!-- Empty state -->
+    <div class="bg-white border border-dashed border-indigo-300 rounded-lg p-12 text-center animate-fade-in-up">
+      <h2 class="text-2xl font-bold text-gray-700 mb-4">No projects yet</h2>
+      <p class="text-gray-500">Looks like this category is still waiting for its first addition.</p>
+    </div>
+  {{/if}}
+</section>
+
+<style>
+  @keyframes fade-in-down { from {opacity:0; transform:translateY(-10px)} to {opacity:1; transform:none} }
+  @keyframes fade-in-up   { from {opacity:0; transform:translateY(10px)}  to {opacity:1; transform:none} }
+  .animate-fade-in-down { animation: fade-in-down .8s both; }
+  .animate-fade-in-up   { animation: fade-in-up   .8s .2s both; }
+</style>
